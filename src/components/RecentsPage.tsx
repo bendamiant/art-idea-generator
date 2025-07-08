@@ -2,7 +2,7 @@ function RecentsPage() {
 
     return (
         <>
-            <div>STUB</div>
+            <div>Recents Page</div>
         </>
     )
 }

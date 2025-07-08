@@ -2,7 +2,7 @@ function SavedPage() {
 
     return (
         <>
-            <div>STUB</div>
+            <div>Saved Page</div>
         </>
     )
 }
