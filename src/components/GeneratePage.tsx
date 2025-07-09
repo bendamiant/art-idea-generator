@@ -1,7 +1,8 @@
 import { useReducer } from 'react';
-import type { Card, CardAction } from '../types/types';
+import type { CardData, CardAction } from '../types/types';
+import Card from './Card';
 
-function cardsReducer(state: Card[], action: CardAction): Card[] {
+function cardsReducer(state: CardData[], action: CardAction): CardData[] {
     switch (action.type) {
         case 'new': {
 
@@ -24,7 +25,7 @@ function cardsReducer(state: Card[], action: CardAction): Card[] {
 function GeneratePage() {
     const [cards, dispatch] = useReducer(cardsReducer, []);
 
-    function handleAddCard() {
+    function handleNewCard() {
 
     }
 
@@ -39,10 +40,16 @@ function GeneratePage() {
     function handleGenerate() {
 
     }
-    
+
     return (
         <>
             <div>Generate Page</div>
+            <ul>
+                {cards.map((card) => <Card id={card.id} 
+                                            locked={card.locked} 
+                                            category={card.category} 
+                                            word={card.word}/>)}
+            </ul>
         </>
     )
 }
