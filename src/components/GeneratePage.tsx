@@ -1,6 +1,7 @@
 import { useReducer } from 'react';
-import type { CardData, CardAction } from '../types/types';
+import type { CardData, CardAction, ToolbarAction } from '../types/types';
 import Card from './Card';
+import Toolbar from './Toolbar';
 
 function cardsReducer(state: CardData[], action: CardAction): CardData[] {
     switch (action.type) {
@@ -50,6 +51,7 @@ function GeneratePage() {
                                             category={card.category} 
                                             word={card.word}/>)}
             </ul>
+            <Toolbar actions={[]}/>
         </>
     )
 }
