@@ -27,7 +27,7 @@ function GeneratePage() {
     const [cards, dispatch] = useReducer(cardsReducer, []);
 
     function handleNewCard() {
-
+    
     }
 
     function handleDeleteCard() {
@@ -42,16 +42,22 @@ function GeneratePage() {
 
     }
 
+    function handleSetCategory() {
+
+    }
+
     return (
         <>
             <div>Generate Page</div>
             <ul>
-                {cards.map((card) => <Card id={card.id} 
-                                            locked={card.locked} 
-                                            category={card.category} 
-                                            word={card.word}/>)}
+                {cards.map((card) => <Card cardData={card}
+                                           onClickLock={handleToggleLock}
+                                           onClickDelete={handleDeleteCard}
+                                           onClickSetCategory={handleSetCategory}/>)}           
             </ul>
-            <Toolbar actions={[]}/>
+            <Toolbar actions={[{label: 'generate', icon: 'gen', onClick: handleGenerate},
+                               {label: 'new', icon: '+', onClick: handleNewCard}]}
+            />
         </>
     )
 }

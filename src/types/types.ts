@@ -1,11 +1,12 @@
 export type PageKey = "generate" | "recents" | "saved";
+
 export type CategoryKey = "animals" | "concepts";
 
 export interface CardData {
     id: string;
     locked: boolean;
-    category: string;
-    word: string;
+    category: CategoryKey;
+    word: string | null;
 };
 
 export type CardAction =
