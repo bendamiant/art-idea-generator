@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import type { CardData } from '../types/types';
+import type { CardData, CategoryKey } from '../types/types';
 
 interface Props {
     cardData: CardData;
-    onClickLock: () => void;
-    onClickDelete: () => void;
-    onClickSetCategory: () => void;
+    onClickDelete: (id: string) => void;
+    onClickLock: (id: string) => void;
+    onClickSetCategory: (id: string, category: CategoryKey) => void;
 }
 
 function Card({cardData, onClickLock, onClickDelete, onClickSetCategory}: Props) {
@@ -18,8 +18,8 @@ function Card({cardData, onClickLock, onClickDelete, onClickSetCategory}: Props)
             <div>locked: {cardData.locked}</div>
             <div>category: {cardData.category}</div>
             <div>word: {cardData.word}</div>
-            <button onClick={onClickLock}>lock</button>
-            <button onClick={onClickDelete}>delete</button>
+            <button onClick={() => onClickLock(cardData.id)}>{cardData.locked ? 'locked' : 'unlocked'}</button>
+            <button onClick={() => onClickDelete(cardData.id)}>delete</button>
             <button onClick={() => setIsOpen(!isOpen)}>dropdown</button>
             {isOpen && <div>dropdown list</div>}
         </div>

@@ -5,15 +5,16 @@ export type CategoryKey = "animals" | "concepts";
 export interface CardData {
     id: string;
     locked: boolean;
-    category: CategoryKey;
+    category: CategoryKey | null;
     word: string | null;
 };
 
 export type CardAction =
-  | { type: "new"; id: number; category: CategoryKey }
-  | { type: "delete"; id: number }              
-  | { type: "toggle_lock"; id: number }         
-  | { type: "generate" };    
+  | { type: "new" }
+  | { type: "delete"; id: string }              
+  | { type: "toggle_lock"; id: string }         
+  | { type: "generate" }
+  | { type: "set_category"; id: string; category: CategoryKey };
 
 export interface ToolbarAction {
     label: string;
