@@ -26,4 +26,4 @@ function Card({cardData, onClickLock, onClickDelete, onClickSetCategory}: Props)
     )
 }
 
-export default Card
+export default Card;
