@@ -15,9 +15,3 @@ export type CardAction =
   | { type: "toggle_lock"; id: string }         
   | { type: "generate" }
   | { type: "set_category"; id: string; category: CategoryKey };
-
-export interface ToolbarAction {
-    label: string;
-    icon: React.ReactNode;
-    onClick(): void;
-}

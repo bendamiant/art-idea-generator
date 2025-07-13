@@ -2,6 +2,8 @@ import { useReducer } from 'react';
 import type { CategoryKey } from '../types/types';
 import Card from './Card';
 import Toolbar from './Toolbar';
+import GenerateButton from './GenerateButton';
+import NewButton from './NewButton';
 import cardsReducer from '../state/CardsReducer';
 
 function GeneratePage() {
@@ -36,9 +38,10 @@ function GeneratePage() {
                                            onClickDelete={handleDeleteCard}
                                            onClickSetCategory={handleSetCategory}/>)}           
             </ul>
-            <Toolbar actions={[{label: 'generate', icon: 'gen', onClick: handleGenerate},
-                               {label: 'new', icon: '+', onClick: handleNewCard}]}
-            />
+            <Toolbar>
+                <GenerateButton onClick={handleGenerate} disabled={cards.filter((card) => !card.locked ).length === 0} />
+                <NewButton onClick={handleNewCard} disabled={cards.length >= 10}/>
+            </Toolbar>
         </>
     )
 }

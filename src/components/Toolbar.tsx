@@ -1,14 +1,13 @@
-import type { ToolbarAction } from '../types/types';
 
 interface Props {
-    actions: ToolbarAction[]
+    children: React.ReactNode
 }
 
-function Toolbar({ actions }: Props) {
+function Toolbar({ children }: Props) {
 
     return (
         <div>
-            {actions.map((action) => <button onClick={action.onClick}>{action.icon} {action.label}</button>)}
+            {children}
         </ div>
     )
 }
